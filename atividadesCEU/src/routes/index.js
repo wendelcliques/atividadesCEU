@@ -1,19 +1,19 @@
 import React from 'react'
-import { View, Text, styleSheets } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import Colors from '../styles/Colors'
 
 const Routes = () => {
     return (
-        <View style={styles.container}>
+        <View>
             <Text>wendel</Text>
         </View>
     )
 }
 
-const styles = styleSheets.create({
+const styles = StyleSheet.create({
     container: {
         flex: 1,
-        bacgroundColor: Colors.background,
+        backgroundColor: Colors.background,
     }
 });
 
