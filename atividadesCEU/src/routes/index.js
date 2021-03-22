@@ -37,8 +37,7 @@ const StackScreens = () => {
         initialRouteName={logged? 'Administrador' : 'Administrador'}>
             <Stack.Screen name="SignIn" component={SignIn} />
             <Stack.Screen name="SignUp" component={SignUp} />
-            <Stack.Screen name="Cliente" component={MyTabsCliente} />
-            <Stack.Screen name="Vendedor" component={MyTabsVendedor} />
+            <Stack.Screen name="Cliente" component={MyTabsUsuario} />           
             <Stack.Screen name="Administrador" component={MyTabsAdministrador} />
         </Stack.Navigator>
     );
