@@ -41,7 +41,7 @@ const SignIn = ({navigation}) => {
     }
 
     return (
-        <KeyboardAvoidingView behavior="padding" style={StyleSheet.container}>
+        <KeyboardAvoidingView behavior="height" style={styles.container}>
             <TextInput 
                 style={styles.input}
                 placeholder="Seu e-mail"
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
         width: '80%',
         paddingHorizontal: 20,
         fontSize: 16,
-        color: Colors.black,
+        color: Colors.white,
         height: 44,
         marginTop: 20,
     },
