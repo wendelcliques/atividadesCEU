@@ -41,6 +41,8 @@ export const signUp = async (data) => {
         })
 
         return {registerSuccess: true}
+
+        
     }   catch (e) {
         Alert.alert('Erro ao criar usuário', e.message);
         return {registerSuccess: false}
