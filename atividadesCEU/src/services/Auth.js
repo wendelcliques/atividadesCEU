@@ -7,8 +7,9 @@ import firestore from '@react-native-firebase/firestore';
 
 export const isLogged = async () => {
     const userAuth = await AsyncStorage.getItem('userAuth');
+    console.log('isLogged :: value ', JSON.stringify(userAuth !== null));
     return userAuth !== null;
-    //console.log('isLogged :: value ', userAuth),
+   
 };
 
 export const setUserAuth = async (uid) => {

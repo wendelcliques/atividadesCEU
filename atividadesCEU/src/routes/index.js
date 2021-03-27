@@ -47,11 +47,16 @@ function MyTabsUsuario() {
 
 const StackScreens = ({logged, initiated}) => {
     return (
+    
         <Stack.Navigator 
         screenOptions={{headerShown: false}}
-        initialRouteName={logged? ( initiated? "Administrador" : "Administrador") : "SignIn"}
-        //initialRouteName="Administrador"
-        >
+     
+        initialRouteName={
+         
+          logged ? 
+          
+          (initiated ? 'SignIn' : 'Administrador')
+          : 'SignIn'}>
            
             <Stack.Screen name="SignIn" component={SignIn} />
             <Stack.Screen name="SignUp" component={SignUp} />
@@ -75,8 +80,9 @@ const Routes = () => {
       }
       if (await isLogged()) {
         setLogged(true);
+        
       }
-      //setIsLoading(false);
+     
     }
     initialVerifications();
   })
