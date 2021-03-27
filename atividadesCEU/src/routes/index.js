@@ -56,7 +56,7 @@ const StackScreens = ({logged, initiated}) => {
           logged ? 
           
           (initiated ? 'SignIn' : 'Administrador')
-          : 'SignIn'}>
+          : 'Usuario'}>
            
             <Stack.Screen name="SignIn" component={SignIn} />
             <Stack.Screen name="SignUp" component={SignUp} />
