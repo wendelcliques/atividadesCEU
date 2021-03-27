@@ -49,14 +49,15 @@ const StackScreens = ({logged, initiated}) => {
     return (
         <Stack.Navigator 
         screenOptions={{headerShown: false}}
-        initialRouteName={logged? ( initiated? "Usuario" : "Administrador") : "SignIn"}
+        initialRouteName={logged? ( initiated? "Administrador" : "Administrador") : "SignIn"}
         //initialRouteName="Administrador"
         >
            
             <Stack.Screen name="SignIn" component={SignIn} />
             <Stack.Screen name="SignUp" component={SignUp} />
-            <Stack.Screen name="Usuario" component={MyTabsUsuario} />         
             <Stack.Screen name="Administrador" component={MyTabsAdministrador} />
+            <Stack.Screen name="Usuario" component={MyTabsUsuario} />         
+            
         </Stack.Navigator>
     );
 }
