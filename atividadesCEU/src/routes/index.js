@@ -14,7 +14,7 @@ import {isLogged} from '../services/Auth';
 
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
-import AdministradorGerenciamento from '../pages/Administrador/AdministradorGerenciamento';
+import AdministradorGerenciamento from '../pages/Administrador/AdministradorAtividades';
 import AdministradorTurmas from '../pages/Administrador/AdministradorTurmas';
 import UsuarioAtividades from '../pages/Usuario/UsuarioAtividades';
 import UsuarioInscricoes from '../pages/Usuario/UsuarioInscricoes';
@@ -35,9 +35,9 @@ function MyTabsUsuario() {
 
   function MyTabsAdministrador() {
     return (
-      <Tab.Navigator>
+      <Tab.Navigator>        
+        <Tab.Screen name="Atividades" component={AdministradorGerenciamento} />
         <Tab.Screen name="Turmas" component={AdministradorTurmas} />
-        <Tab.Screen name="Gerenciamento" component={AdministradorGerenciamento} />
         
       </Tab.Navigator>
     );
@@ -55,8 +55,8 @@ const StackScreens = ({logged, initiated}) => {
          
           logged ? 
           
-          (initiated ? 'SignIn' : 'Administrador')
-          : 'Usuario'}>
+          (initiated ? 'Administrador' : 'Usuario')
+          : 'SignIn'}>
            
             <Stack.Screen name="SignIn" component={SignIn} />
             <Stack.Screen name="SignUp" component={SignUp} />
