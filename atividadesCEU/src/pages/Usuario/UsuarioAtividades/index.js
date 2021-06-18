@@ -13,7 +13,7 @@ const UsuarioAtividades = () => {
     return (
         <View >
         <View style={styles.container}>
-        <Text>Atividades</Text>
+         
             <PerfilUsuario
             title="Usuário"
             onPerfilPress={() => {
@@ -38,6 +38,9 @@ const styles = StyleSheet.create({
         //backgroundColor: Colors.background,
         paddingVertical: 10,
     },
+    cabeçalho: {
+        //flex: 1,
+    }
 });
 
 export default UsuarioAtividades
