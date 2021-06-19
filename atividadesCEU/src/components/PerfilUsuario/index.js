@@ -8,7 +8,14 @@ import {StatusBar,
 
  import Colors from '../../styles/Colors';
 
-const PerfilUsuario = ({title, onPerfilPress}) => {
+const PerfilUsuario = (
+    {title, 
+        onPerfilPress,
+         onIdadesPress,
+          onIdadesAtual,
+          onGeneroPress,
+          onGeneroClosePress,
+          onGeneroAtual,}) => {
     return (
         <View style={{
             
@@ -74,27 +81,11 @@ const PerfilUsuario = ({title, onPerfilPress}) => {
     marginBottom: 5,
 }}
 
-> Cursos</Text>
+> Transformar em flat list horizontal</Text>
 
     </TouchableOpacity>
-    <TouchableOpacity
     
-    onPress={() => {}} 
-    >
-<Text
- style={{
-     
-    borderWidth: 1,
-    borderRadius: 5,
-    paddingLeft: 20,
-    paddingRight: 20,
-    marginLeft: 5,
-    marginRight: 70,
-}}
-> Apresetações</Text>
-
-    </TouchableOpacity>
-
+    
 </View>
 
 
@@ -104,8 +95,11 @@ const PerfilUsuario = ({title, onPerfilPress}) => {
     paddingLeft: 20,
 }}>
     <TouchableOpacity
-    onPress={() => {}} >
+    onPress={() => {
+        onIdadesPress();
+    }} >
 <Text style={{
+    width: 107,
     borderWidth: 1,
     borderRadius: 5,
     paddingLeft: 20,
@@ -113,16 +107,18 @@ const PerfilUsuario = ({title, onPerfilPress}) => {
     marginBottom: 5,
 }}
 
-> Cursos</Text>
+> {onIdadesAtual} </Text>
 
     </TouchableOpacity>
     <TouchableOpacity
     
-    onPress={() => {}} 
+    onPress={() => {
+        onGeneroPress();
+    }} 
     >
 <Text
  style={{
-     
+     width: 107,
     borderWidth: 1,
     borderRadius: 5,
     paddingLeft: 20,
@@ -130,7 +126,7 @@ const PerfilUsuario = ({title, onPerfilPress}) => {
     marginLeft: 5,
     marginRight: 70,
 }}
-> Apresetações</Text>
+>{onGeneroAtual}</Text>
 
     </TouchableOpacity>
 
