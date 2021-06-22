@@ -7,6 +7,7 @@ import {  Modal,
  } from 'react-native';
 
 import Colors from '../../styles/Colors'
+import BtAddFormUsuario from '../../components/BtAddFormUsuário'
 const UsuBtModal = ({isVisible, onCancel}) => {
     return (
         <Modal 
@@ -18,6 +19,9 @@ const UsuBtModal = ({isVisible, onCancel}) => {
         <View>
             <Text>Perfil Modal</Text>
         </View>
+        <BtAddFormUsuario 
+        title={"ADD"}
+        />
 
         <TouchableOpacity
                 style={styles.modal}
