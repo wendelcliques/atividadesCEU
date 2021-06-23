@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {  Modal,
     View,
     TouchableOpacity,
@@ -8,8 +8,12 @@ import {  Modal,
 
 import Colors from '../../styles/Colors'
 import BtAddFormUsuario from '../../components/BtAddFormUsuário'
+import FormUsuModal from '../FormUsuModal'
+
 const UsuBtModal = ({isVisible, onCancel}) => {
+    const [modalvisible, setModalvisible] = useState(false);
     return (
+        <>
         <Modal 
         animationType='slide'
         transparent={true}
@@ -21,6 +25,11 @@ const UsuBtModal = ({isVisible, onCancel}) => {
         </View>
         <BtAddFormUsuario 
         title={"ADD"}
+        onPress={
+            () => {
+                setModalvisible(true);
+            }
+        }
         />
 
         <TouchableOpacity
@@ -31,6 +40,10 @@ const UsuBtModal = ({isVisible, onCancel}) => {
                 <Text></Text>
                 </TouchableOpacity>
         </Modal>
+        <FormUsuModal 
+        isVisible={modalvisible}
+        />
+        </>
     )
 }
 const styles = StyleSheet.create({

@@ -1,14 +1,19 @@
 import React from 'react'
 import { View, Text, TextInput } from 'react-native'
 
-const index = () => {
+const FormUsuInput = ({onChangeText, value, placeholder }) => {
     return (
         <View>
-            <TextInput>
+            <TextInput
+            onChangeText={onChangeText}
+            value={value}
+            placeholder={placeholder}
+            
+            />
                 
-            </TextInput>
+            
         </View>
     )
 }
 
-export default index
+export default FormUsuInput
