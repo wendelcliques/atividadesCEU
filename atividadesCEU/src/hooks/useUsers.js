@@ -4,9 +4,25 @@ import {
     updateUser,
 } from '../services/Users';
 
+import {
+    getUser,
+} from '../services/Auth';
+
 const useUsers = () => {
 
-    return [updateUser];
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        const loadUsers = async () => {
+            const data = await getUser();
+            setUsers(data);
+
+            console.log('user::data', JSON.stringify(data))
+        };
+        loadUsers();
+    }, []);
+
+    return [users, updateUser];
 
 };
 

@@ -12,6 +12,10 @@ import FormUsuModal from '../FormUsuModal'
 
 const UsuBtModal = ({isVisible, onCancel}) => {
     const [modalvisible, setModalvisible] = useState(false);
+
+    const onClosePress = () => {
+        setModalvisible(false);
+    };
     return (
         <>
         <Modal 
@@ -25,7 +29,7 @@ const UsuBtModal = ({isVisible, onCancel}) => {
         </View>
         <BtAddFormUsuario 
         title={"ADD"}
-        onPress={
+        onAddFormUsuPress={
             () => {
                 setModalvisible(true);
             }
@@ -42,6 +46,7 @@ const UsuBtModal = ({isVisible, onCancel}) => {
         </Modal>
         <FormUsuModal 
         isVisible={modalvisible}
+        onCancel={onClosePress}
         />
         </>
     )

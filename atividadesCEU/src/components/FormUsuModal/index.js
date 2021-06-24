@@ -1,32 +1,46 @@
-import React, {useState} from 'react'
-import {Modal, View, Text } from 'react-native'
+import React, {useState, useEffect} from 'react'
+import {Modal, View, Text, TouchableOpacity } from 'react-native'
 import FormUsuInput from './FormUsuInput'
 
 import useUsers from '../../hooks/useUsers'
 
-const FormUsuModal = ({route, isVisible}) => {
+import getUser from '../../services/Auth'
+
+const FormUsuModal = ({route, navigation, isVisible, onCancel}) => {
+
+   let [users, setUsers] = useState([]);
+ useEffect(() => {
+     async function loadUsers() {
+         const data = await getUser();
+setUsers(data);
+     }
+     loadUsers();
+     console.log("users:: useeffect", JSON.stringify(data))
+ }, []) ;  
+
+    const userAuth = userAuth;
    const user = 
-   //route.params?.user? 
-  // route.params.user   :
+  // route.params?.users? 
+  // route.params.users:
    {
        id: null,
-       name: "teste",
+       name: null,
        rg: null,
        responsavel: null,
    };
 
    const [, updateUser] = useUsers();
 
-   const [name, setName] = useState(user.name);
-   const [rg, setRg] = useState(user.rg);
-   const [responsavel, setResponsavel] = useState(user.responsavel);
+   const [name, setName] = useState(users.name);
+   //const [rg, setRg] = useState(users.rg);
+   //const [responsavel, setResponsavel] = useState(users.responsavel);
 
    const onUpdate = () => {
        const data ={
-           id: user.id,
-           name: user.name,
-           rg: user.rg,
-           responsavel: user.responsavel,
+          // id: users.id,
+           name: users.name,
+           //rg: users.rg,
+           //responsavel: users.responsavel,
        }
 
        console.log('FormUsuModal:: update', data);
@@ -52,17 +66,23 @@ const onClose = () => {
             placeholder={"Nome"}
             />
               <FormUsuInput 
-            onChangeText={setRg}
-            value={rg}
+           // onChangeText={setRg}
+            //value={rg}
             placeholder={"RG"}
             />
                <FormUsuInput 
-            onChangeText={setResponsavel}
-            value={responsavel}
+           // onChangeText={setResponsavel}
+           // value={responsavel}
             placeholder={"Responsável"}
             />
             <Text>FormUsuInput</Text>
         </View>
+
+        <TouchableOpacity 
+        onPress={ onCancel}
+        >
+            <Text>sair</Text>
+        </TouchableOpacity>
         </Modal>
     )
 }
