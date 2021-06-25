@@ -17,7 +17,7 @@ const useUsers = () => {
             const data = await getUser();
             setUsers(data);
 
-            console.log('user::data', JSON.stringify(data))
+            console.log('user::data', JSON.stringify(users))
         };
         loadUsers();
     }, []);

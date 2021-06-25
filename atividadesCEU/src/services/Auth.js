@@ -30,7 +30,7 @@ export const getUser = async () => {
     let querySnapshot;
 querySnapshot = await firestore()
 .collection('users')
-.where('userId', '==', userAuth)
+.where('userId', '==', userAuth? userAuth : "null")
 .orderBy('name')
 .get();
 

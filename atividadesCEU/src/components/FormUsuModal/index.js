@@ -4,7 +4,7 @@ import FormUsuInput from './FormUsuInput'
 
 import useUsers from '../../hooks/useUsers'
 
-import getUser from '../../services/Auth'
+import {getUser} from '../../services/Auth'
 
 const FormUsuModal = ({route, navigation, isVisible, onCancel}) => {
 
@@ -15,32 +15,31 @@ const FormUsuModal = ({route, navigation, isVisible, onCancel}) => {
 setUsers(data);
      }
      loadUsers();
-     console.log("users:: useeffect", JSON.stringify(data))
+     console.log("users:: useeffect", JSON.stringify(users))
  }, []) ;  
 
     const userAuth = userAuth;
-   const user = 
-  // route.params?.users? 
-  // route.params.users:
-   {
-       id: null,
-       name: null,
-       rg: null,
-       responsavel: null,
+   let user = {
+       id: users.userId? users.userId: null,
+       name: "teste",
+       rg: users.rg? users.rg: null,
+       responsavel: users.responsavel? users.responsavel: null,
    };
 
    const [, updateUser] = useUsers();
 
    const [name, setName] = useState(users.name);
-   //const [rg, setRg] = useState(users.rg);
-   //const [responsavel, setResponsavel] = useState(users.responsavel);
+   const [rg, setRg] = useState(users.rg);
+   const [responsavel, setResponsavel] = useState(users.responsavel);
+
+   console.log("users:: name", JSON.stringify(name))
 
    const onUpdate = () => {
        const data ={
-          // id: users.id,
-           name: users.name,
-           //rg: users.rg,
-           //responsavel: users.responsavel,
+           id: user.userId,
+           name: user.name,
+           rg: user.rg,
+           responsavel: user.responsavel,
        }
 
        console.log('FormUsuModal:: update', data);
