@@ -1,11 +1,13 @@
 import React, {useState} from 'react'
 import { View, Text, StyleSheet} from 'react-native'
 import PerfilUsuario from '../../../components/PerfilUsuario'
+
+import UsuList from '../../../components/UsuList'
 import UsuBtModal from '../../../components/UsuBtModal'
 import IdadeModal from '../../../components/IdadeModal'
 import GeneroModal from '../../../components/GeneroModal'
 import Colors from '../../../styles/Colors'
-const UsuarioAtividades = () => {
+const UsuarioAtividades = ({navigation}) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [idadesVisible, setIdadesVisible] =useState(false);
     const [idadesAtual, setIdadesAtual] = useState("Selecione a idade");
@@ -80,6 +82,8 @@ const UsuarioAtividades = () => {
          onCancel={onClosePress}
          />
      </View>
+
+     <UsuList />
      </View>
     )
 }

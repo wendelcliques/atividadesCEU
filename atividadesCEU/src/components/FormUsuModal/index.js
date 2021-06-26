@@ -6,7 +6,7 @@ import useUsers from '../../hooks/useUsers'
 
 import {getUser} from '../../services/Auth'
 
-const FormUsuModal = ({route, navigation, isVisible, onCancel}) => {
+const FormUsuModal = ({route, navigation, isVisible, onCancel, user}) => {
 
    let [users, setUsers] = useState([]);
  useEffect(() => {
@@ -19,18 +19,18 @@ setUsers(data);
  }, []) ;  
 
     const userAuth = userAuth;
-   let user = {
-       id: users.userId? users.userId: null,
+   let userr = {
+       id: user.userId? user.userId: null,
        name: "teste",
-       rg: users.rg? users.rg: null,
-       responsavel: users.responsavel? users.responsavel: null,
+       rg: user.rg? user.rg: null,
+       responsavel: user.responsavel? user.responsavel: null,
    };
 
    const [, updateUser] = useUsers();
 
-   const [name, setName] = useState(users.name);
-   const [rg, setRg] = useState(users.rg);
-   const [responsavel, setResponsavel] = useState(users.responsavel);
+   const [name, setName] = useState(userr.name);
+   const [rg, setRg] = useState(userr.rg);
+   const [responsavel, setResponsavel] = useState(userr.responsavel);
 
    console.log("users:: name", JSON.stringify(name))
 

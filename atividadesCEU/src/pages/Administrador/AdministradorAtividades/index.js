@@ -6,6 +6,8 @@ import {
     Text } from 'react-native';
 
 import GerenButtonModal from '../../../components/GerenButtonModal';
+
+import UsuList from '../../../components/UsuList'
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
     import ActionTop from '../../../components/ActionTop';
@@ -37,6 +39,9 @@ const AdministradorAtividades = () => {
             onCancel={onClosePress}
             />
         </View>
+
+
+        <UsuList />
         </View>
     )
 }
