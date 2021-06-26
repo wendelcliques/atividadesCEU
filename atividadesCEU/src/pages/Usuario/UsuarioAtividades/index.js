@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { View, Text, StyleSheet} from 'react-native'
 import PerfilUsuario from '../../../components/PerfilUsuario'
 
-import UsuList from '../../../components/UsuList'
+
 import UsuBtModal from '../../../components/UsuBtModal'
 import IdadeModal from '../../../components/IdadeModal'
 import GeneroModal from '../../../components/GeneroModal'
@@ -83,7 +83,7 @@ const UsuarioAtividades = ({navigation}) => {
          />
      </View>
 
-     <UsuList />
+     
      </View>
     )
 }

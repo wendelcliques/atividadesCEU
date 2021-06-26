@@ -41,7 +41,7 @@ const AdministradorAtividades = () => {
         </View>
 
 
-        <UsuList />
+        
         </View>
     )
 }

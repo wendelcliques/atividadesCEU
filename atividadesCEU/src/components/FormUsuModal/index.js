@@ -2,31 +2,31 @@ import React, {useState, useEffect} from 'react'
 import {Modal, View, Text, TouchableOpacity } from 'react-native'
 import FormUsuInput from './FormUsuInput'
 
-import useUsers from '../../hooks/useUsers'
+//import useUsers from '../../hooks/useUsers'
 
 import {getUser} from '../../services/Auth'
 
 const FormUsuModal = ({route, navigation, isVisible, onCancel, user}) => {
 
    let [users, setUsers] = useState([]);
- useEffect(() => {
+/* useEffect(() => {
      async function loadUsers() {
          const data = await getUser();
 setUsers(data);
      }
      loadUsers();
      console.log("users:: useeffect", JSON.stringify(users))
- }, []) ;  
+ }, []) ; */ 
 
     const userAuth = userAuth;
    let userr = {
-       id: user.userId? user.userId: null,
+       id:  null,
        name: "teste",
-       rg: user.rg? user.rg: null,
-       responsavel: user.responsavel? user.responsavel: null,
+       rg:  null,
+       responsavel: null,
    };
 
-   const [, updateUser] = useUsers();
+   //const [, updateUser] = useUsers();
 
    const [name, setName] = useState(userr.name);
    const [rg, setRg] = useState(userr.rg);

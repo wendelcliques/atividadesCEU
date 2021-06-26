@@ -18,14 +18,14 @@ const UsuList = ({category}) => {
 
     }
     const navigation = useNavigation();
-    const [users] = useUsers();
+    const  [users] = useUsers();
 
     return (
 <>
      
         <FlatList
         data={users}
-        keyExtractor={item => item.userId}
+        keyExtractor={item => item.name}
         renderItem={({item, index}) => (
             <UsuListItem 
                 user={item}

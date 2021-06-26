@@ -25,12 +25,12 @@ export const cleanUserAuth = async () => {
     await AsyncStorage.removeItem('userAuth');
 };
 
-export const getUser = async () => {
+/* export const getUser = async () => {
     const userAuth = await getUserAuth();
     let querySnapshot;
 querySnapshot = await firestore()
 .collection('users')
-.where('userId', '==', userAuth? userAuth : "null")
+//.where('userId', '==', userAuth)
 .orderBy('name')
 .get();
 
@@ -40,6 +40,7 @@ return {...documentSnapshot.data(), id: documentSnapshot.id};
 
 return userAtual;
 };
+*/
 
 export const signUp = async (data) => {
     const {email, password, name} = data

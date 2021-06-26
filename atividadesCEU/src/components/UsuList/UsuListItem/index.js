@@ -4,7 +4,7 @@ import { View, Text } from 'react-native'
 const UsuListItem = ({user}) => {
     return (
         <View>
-            <Text>usulistitem {user.name}</Text>
+            <Text>usulistitem </Text>
         </View>
     )
 }
