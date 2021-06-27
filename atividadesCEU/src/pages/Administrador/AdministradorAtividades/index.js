@@ -6,6 +6,7 @@ import {
     Text } from 'react-native';
 
 import GerenButtonModal from '../../../components/GerenButtonModal';
+import AddAtividades from '../../../components/AddAtividades';
 
 import UsuList from '../../../components/UsuList'
 import { Colors } from 'react-native/Libraries/NewAppScreen';
@@ -15,9 +16,11 @@ import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const AdministradorAtividades = () => {
     const [modalVisible, setModalVisible] = useState(false);
+    const [ativmodalVisible, setAtivmodalVisible] = useState(false);
 
     const onClosePress = () => {
         setModalVisible(false);
+        setAtivmodalVisible(false);
     };
 
     return (
@@ -37,6 +40,17 @@ const AdministradorAtividades = () => {
             <GerenButtonModal
             isVisible={modalVisible}
             onCancel={onClosePress}
+            onAtividadePress={
+                () => {
+                    setAtivmodalVisible(true);
+                }
+            }
+            />
+
+            <AddAtividades 
+            isVisible={ativmodalVisible}
+            onCancel={onClosePress}
+            
             />
         </View>
 

@@ -9,7 +9,18 @@ import {
 
  import Colors from '../../styles/Colors';
 
-const GerenButtonModal = ({isVisible, onCancel}) => {
+const GerenButtonModal = ({isVisible, onCancel, onAtividadePress}) => {
+
+const addAtividades = () => {
+    onAtividadePress
+    
+}
+
+const onCancelar = () => {
+    onCancel
+}
+
+
     return (
         <Modal 
         animationType='slide'
@@ -55,6 +66,28 @@ const GerenButtonModal = ({isVisible, onCancel}) => {
                     onCancel
                     }>
                      <Text style={styles.botão2Text}>Usuários</Text>
+                    </TouchableOpacity>
+                    </View>
+                </View>
+
+
+
+                <View style={styles.menulinha1}>
+                    
+                    <TouchableOpacity 
+                    style={styles.botão1}
+                    onPress={
+                    onCancel
+                    }>
+                    </TouchableOpacity>
+                    
+
+                    <View>
+                    <TouchableOpacity onPress={
+                    onAtividadePress   
+                    
+                    }>
+                     <Text style={styles.botão2Text}>Add Atividades</Text>
                     </TouchableOpacity>
                     </View>
                 </View>

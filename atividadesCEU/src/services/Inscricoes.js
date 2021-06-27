@@ -2,8 +2,16 @@ import {Alert} from 'react-native';
 
 import firestore from '@react-native-firebase/firestore';
 
-export const addAtividade = async value => {
+export const addInscricao = async value => {
     let data = {};
+
+    
+    
+    
+    const {category} = value; //barraca
+    const {situation} = value; //situação (carrinho, confirmado, pronto, entregue)
+    const {user} = value; //usuário
+
 
     const {titulo} = value;
     const {photo} = value;
@@ -11,18 +19,12 @@ export const addAtividade = async value => {
    
     const {professor} = value;
     const {apresentador} = value;
-    const {descricao} = value;
-    const {vagas} = value;
-    const {description} = value;
+    const {descricao} = value; // produto
+    const {vagas} = value; 
     
-    
-    
-
-
-
+    const {titulo} = value;
   
-  
-    console.log('addAtividades :: value: ', JSON.stringify(value));
+    console.log('addInscricao :: value: ', JSON.stringify(value));
   
     try {
       data = {
@@ -33,10 +35,12 @@ export const addAtividade = async value => {
         professor: professor,
         apresentador: apresentador,
         descricao: descricao,
-        vagas: vagas,
-        description: description,
+        vagas: vagas,        
+        category: category,
         
-       
+    
+        situation: situation,
+        user: user,
         entryAt: new Date(),
         
         isInit: false,
@@ -45,7 +49,7 @@ export const addAtividade = async value => {
       };
   
       await firestore()
-        .collection('atividades')
+        .collection('inscricoes')
         .add(data);
     } catch (error) {
       console.error(
@@ -53,18 +57,24 @@ export const addAtividade = async value => {
         JSON.stringify(data),
         JSON.stringify(error),
       );
-      Alert.alert('Erro', 'Houve um erro ao salvar esta atividade.');
+      Alert.alert('Erro', 'Houve um erro ao salvar esta inscrição.');
     }
   
     return data;
   };
 
-  export const updateAtividade = async value => {
+  export const updateInscricao = async value => {
    
   
-    console.log('updateAtividade :: value: ', JSON.stringify(value));
+    console.log('updateInscricao :: value: ', JSON.stringify(value));
     let data = {};
     const {id} = value;
+    
+    
+    const {category} = value;
+    const {situation} = value;
+    const {isInit} = value;
+
     const {titulo} = value;
     const {photo} = value;
     const {agenda} = value;
@@ -74,7 +84,6 @@ export const addAtividade = async value => {
     const {descricao} = value;
     const {vagas} = value;
     const {description} = value;
-    
   
     
 
@@ -90,18 +99,19 @@ export const addAtividade = async value => {
         descricao: descricao,
         vagas: vagas,
         description: description,
-        category: category,
-       
-       
+        category: category,        
+        situation: situation,
         
-        isInit: false,
+        
+        isInit: isInit,
+        visibility: 'public',
         
       };
 
-      console.log('updateEntry :: data: ', JSON.stringify(data));
+      console.log('updateInscricao :: data: ', JSON.stringify(data));
       
      await firestore()
-        .collection('atividades')
+     .collection('inscricoes')
         .doc(data.id)
         .update( data);
     } catch (error) {
@@ -127,17 +137,16 @@ export const addAtividade = async value => {
     JSON.stringify(error),
   );*/
 
-  export const getAtividades = async (days, category) => {
+  export const getInscricoes = async (days, category) => {
     let querySnapshot;
 
     querySnapshot = await firestore()
-    
-      .collection('atividades')
-     .where('visibility', '==', 'public')
+    .collection('inscricoes')
+    .where('visibility', '==', 'public')
       .orderBy('entryAt')
       .get();
 
-      let atividades = querySnapshot.docs.map(documentSnapshot => {
+      let inscricoes = querySnapshot.docs.map(documentSnapshot => {
         return {...documentSnapshot.data(), id: documentSnapshot.id};
       });
     
@@ -145,10 +154,35 @@ export const addAtividade = async value => {
         entries = entries.filter(entry => entry.category.id === category.id);
       }
     
-      return atividades;
+      return inscricoes;
     };
 
-    export const deleteEntry = async value => {
+
+    export const getInscricoesPedido = async value => {
+      let querySnapshot;
+  
+      querySnapshot = await firestore()
+      .collection('inscricoes')
+      .where('visibility', '==', 'public')
+      .where('isInit', '==', true)
+        .orderBy('entryAt')
+        .get();
+  
+        let inscricoes = querySnapshot.docs.map(documentSnapshot => {
+          return {...documentSnapshot.data(), id: documentSnapshot.id};
+        });
+      
+      
+        console.log('getOrdersPedido :: data: ', JSON.stringify(entries));
+        return inscricoes;
+
+        
+   
+      };
+
+
+
+    export const deleteInscricao = async value => {
       let data = {};
     const {id} = value;
    
@@ -158,7 +192,7 @@ export const addAtividade = async value => {
                        
           };
         await firestore()
-        .collection('atividades')
+        .collection('inscricoes')
         .doc(data.id)
         .delete();
     } catch (error) {
