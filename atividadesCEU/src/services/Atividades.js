@@ -90,7 +90,7 @@ export const addAtividade = async value => {
         descricao: descricao,
         vagas: vagas,
         description: description,
-        category: category,
+        
        
        
         
@@ -98,7 +98,7 @@ export const addAtividade = async value => {
         
       };
 
-      console.log('updateEntry :: data: ', JSON.stringify(data));
+      console.log('updateAtividade :: data: ', JSON.stringify(data));
       
      await firestore()
         .collection('atividades')
@@ -107,13 +107,6 @@ export const addAtividade = async value => {
     } catch (error) {
  
 
-      console.error(
-        'upEntry :: error on update object: ',
-      
-        'upEntry :: value.id: ',
-        JSON.stringify(entry),
-       
-      );
       Alert.alert('Erro', 'Houve um erro ao atualizar este lançamento.');
     }
   
@@ -148,7 +141,7 @@ export const addAtividade = async value => {
       return atividades;
     };
 
-    export const deleteEntry = async value => {
+    export const deleteAtividade = async value => {
       let data = {};
     const {id} = value;
    
