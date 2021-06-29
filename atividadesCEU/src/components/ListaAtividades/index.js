@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import { Modal, View, Text, FlatList, TouchableOpacity, TextInput, Alert} from 'react-native'
+import { Modal, View, Text, FlatList, TouchableOpacity, TextInput, Alert} from 'react-native';
 
-import {getAtividades} from '../../services/Atividades'
-import {updateAtividade} from '../../services/Atividades'
-import {deleteAtividade} from '../../services/Atividades'
+import {getAtividades} from '../../services/Atividades';
+import {updateAtividade} from '../../services/Atividades';
+import {deleteAtividade} from '../../services/Atividades';
 
 const ListaAtividades = () => {
     const atividade = {
@@ -111,6 +111,7 @@ const ListaAtividades = () => {
     return (
         <View>
         <FlatList
+        horizontal={true}
             data={atividades}
             keyExtractor={item => item.id}
              renderItem={({item}) => (
@@ -141,9 +142,7 @@ const ListaAtividades = () => {
                     >
                       - {item.description} 
                      </Text>
-                     <View>
-                       <Text>Atualizar</Text>
-                       </View>
+                     
                   </View>
 
                  
