@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {Alert} from 'react-native';
 
 import firestore from '@react-native-firebase/firestore';

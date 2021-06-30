@@ -85,25 +85,7 @@ const ListaAtividades = () => {
     onClosePress();
   };
 
-  const onDelete = () => {
-    Alert.alert(
-      'Apagar?',
-      'Você deseja realmente apagar esse produto?',
-      [
-        {text: 'Não', style: 'cancel'},
-        {text: 'Sim', onPress: () => onOkPress()},
-      ],
-      {cancelable: false},
-    );
-  };
-  const onOkPress = () => {
-    const value = {
-      id: id,
-    };
-    deleteAtividade(value);
-    onClosePress();
-  };
-
+  
   const onClosePress = () => {
     setModalVisible(false);
   };
@@ -179,17 +161,7 @@ const ListaAtividades = () => {
             </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity
-            //style={styles.modalAdmProdCloseButton}
-            onPress={() => {
-              onDelete();
-            }}>
-            <Text
-            //style={styles.modalAdmProdCloseButtonText}
-            >
-              Apagar
-            </Text>
-          </TouchableOpacity>
+          
         </View>
       </Modal>
     </View>

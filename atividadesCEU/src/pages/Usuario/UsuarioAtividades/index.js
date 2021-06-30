@@ -1,6 +1,8 @@
+/* eslint-disable prettier/prettier */
 import React, {useState} from 'react'
 import { View, Text, StyleSheet} from 'react-native'
 import PerfilUsuario from '../../../components/PerfilUsuario'
+import ListaAtividades from '../../../components/ListaAtividades'
 
 
 import UsuBtModal from '../../../components/UsuBtModal'
@@ -64,6 +66,10 @@ const UsuarioAtividades = ({navigation}) => {
             />
           
         </View>
+
+<ListaAtividades />
+
+
          <View>
 
              <IdadeModal
