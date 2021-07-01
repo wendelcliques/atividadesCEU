@@ -3,7 +3,10 @@ import {Alert} from 'react-native';
 
 import firestore from '@react-native-firebase/firestore';
 
+import {getUserAuth} from './Auth'
+
 export const addAtividade = async value => {
+  const userAuth = await getUserAuth();
     let data = {};
 
     const {titulo} = value;
@@ -15,13 +18,7 @@ export const addAtividade = async value => {
     const {descricao} = value;
     const {vagas} = value;
     const {description} = value;
-    
-    
-    
-
-
-
-  
+     
   
     console.log('addAtividades :: value: ', JSON.stringify(value));
   
@@ -42,6 +39,8 @@ export const addAtividade = async value => {
         
         isInit: false,
         visibility: 'public',
+
+        userId: userAuth,
     
       };
   
@@ -64,6 +63,7 @@ export const addAtividade = async value => {
    
   
     console.log('updateAtividade :: value: ', JSON.stringify(value));
+    const userAuth = await getUserAuth();
     let data = {};
     const {id} = value;
     const {titulo} = value;
@@ -92,10 +92,9 @@ export const addAtividade = async value => {
         vagas: vagas,
         description: description,
         
-       
-       
         
         isInit: false,
+        userId: userAuth,
         
       };
 
@@ -122,12 +121,15 @@ export const addAtividade = async value => {
   );*/
 
   export const getAtividades = async (days, category) => {
+    const userAuth = await getUserAuth();
+
     let querySnapshot;
 
     querySnapshot = await firestore()
     
       .collection('atividades')
      .where('visibility', '==', 'public')
+     .where('userId', '==', userAuth)
       .orderBy('entryAt')
       .get();
 
