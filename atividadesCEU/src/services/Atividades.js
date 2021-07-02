@@ -18,6 +18,7 @@ export const addAtividade = async value => {
     const {descricao} = value;
     const {vagas} = value;
     const {description} = value;
+    
      
   
     console.log('addAtividades :: value: ', JSON.stringify(value));
@@ -129,7 +130,7 @@ export const addAtividade = async value => {
     
       .collection('atividades')
      .where('visibility', '==', 'public')
-     .where('userId', '==', userAuth)
+     //.where('userId', '==', userAuth)
       .orderBy('entryAt')
       .get();
 

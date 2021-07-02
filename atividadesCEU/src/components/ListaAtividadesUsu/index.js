@@ -14,7 +14,7 @@ import {getAtividades} from '../../services/Atividades';
 import {updateAtividade} from '../../services/Atividades';
 import {deleteAtividade} from '../../services/Atividades';
 
-const ListaAtividades = () => {
+const ListaAtividadesUsu = () => {
   const atividade = {
     id: null,
     titulo: null,
@@ -101,10 +101,13 @@ const ListaAtividades = () => {
             onPress={() => {
               setModalVisible(true);
               setId(item.id);
-              //setPrice(item.price)
+              setTitulo(item.titulo);
 
               setDescription(item.description);
-              //setCategory(item.category)
+              setProfessor(item.professor);
+              setApresentador(item.apresentador);
+              setAgenda(item.agenda);
+              setVagas(item.vagas);
               onChangePress(item);
 
               console.log('ListaProduto :: Flatlist onpress', item);
@@ -115,7 +118,31 @@ const ListaAtividades = () => {
               <View
               // style={styles.containerListaProdutosDescription}
               >
-                <Text>- {item.description}</Text>
+                <Text> -{item.titulo}</Text>
+              </View>
+              <View
+              // style={styles.containerListaProdutosDescription}
+              >
+                <Text> {item.professor}</Text>
+              </View>
+
+
+              <View
+              // style={styles.containerListaProdutosDescription}
+              >
+                <Text> {item.apresentador}</Text>
+              </View>
+
+              <View
+              // style={styles.containerListaProdutosDescription}
+              >
+                <Text> {item.agenda}</Text>
+              </View>
+
+              <View
+              // style={styles.containerListaProdutosDescription}
+              >
+                <Text> {item.vagas}</Text>
               </View>
             </View>
           </TouchableOpacity>
@@ -127,6 +154,43 @@ const ListaAtividades = () => {
         animationType="slide"
         transparent={false}
         visible={modalVisible}>
+
+<View
+            // style={styles.containerListaProdutos}
+            >
+              <View
+              // style={styles.containerListaProdutosDescription}
+              >
+                <Text> {titulo}</Text>
+              </View>
+              <View
+              // style={styles.containerListaProdutosDescription}
+              >
+                <Text> {professor}</Text>
+              </View>
+
+
+              <View
+              // style={styles.containerListaProdutosDescription}
+              >
+                <Text> {apresentador}</Text>
+              </View>
+
+              <View
+              // style={styles.containerListaProdutosDescription}
+              >
+                <Text> {agenda}</Text>
+              </View>
+
+              <View
+              // style={styles.containerListaProdutosDescription}
+              >
+                <Text> {vagas}</Text>
+              </View>
+            </View>
+
+
+
         <View
         //style={styles.modalAdmProd}
         >
@@ -168,4 +232,4 @@ const ListaAtividades = () => {
   );
 };
 
-export default ListaAtividades;
+export default ListaAtividadesUsu;

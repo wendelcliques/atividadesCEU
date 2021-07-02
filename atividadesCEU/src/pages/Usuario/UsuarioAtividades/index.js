@@ -4,6 +4,8 @@ import { View, Text, StyleSheet} from 'react-native'
 import PerfilUsuario from '../../../components/PerfilUsuario'
 import ListaAtividades from '../../../components/ListaAtividades'
 
+import ListaAtividadesUsu from '../../../components/ListaAtividadesUsu'
+
 
 import UsuBtModal from '../../../components/UsuBtModal'
 import IdadeModal from '../../../components/IdadeModal'
@@ -67,7 +69,7 @@ const UsuarioAtividades = ({navigation}) => {
           
         </View>
 
-<ListaAtividades />
+<ListaAtividadesUsu />
 
 
          <View>

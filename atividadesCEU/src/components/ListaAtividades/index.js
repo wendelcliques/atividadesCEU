@@ -14,8 +14,14 @@ import {getAtividades} from '../../services/Atividades';
 import {updateAtividade} from '../../services/Atividades';
 import {deleteAtividade} from '../../services/Atividades';
 
+
+
 const ListaAtividades = () => {
+
+  
+  
   const atividade = {
+    
     id: null,
     titulo: null,
     photo: null,
@@ -27,6 +33,7 @@ const ListaAtividades = () => {
     vagas: 0,
     description: null,
     category: null,
+    
   };
 
   const [id, setId] = useState(atividade.id);
@@ -40,6 +47,7 @@ const ListaAtividades = () => {
   const [vagas, setVagas] = useState(atividade.vagas);
   const [description, setDescription] = useState(atividade.description);
   const [category, setCategory] = useState(atividade.category);
+  const [userId, setUserId] = useState(atividade.userId);
 
   const [atividades, setAtividades] = useState([]);
   const [produto, setProduto] = useState([]);
