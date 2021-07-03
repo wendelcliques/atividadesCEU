@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, {useState} from 'react'
 import { 
     View, 
@@ -102,9 +103,44 @@ const save = () => {
             isVisible={ativmodalVisible}
             onCancel={onClosePress}
             onSave={onSavePress}
+
             onChangeDescriptionValue={setDescription}
+
             descriptionvalue={description}
+
+            onChangeTituloValue=
+            {setTitulo}
+
+            titulovalue={titulo}
+
+            onChangePhotoValue=
+            {setPhoto}
+            photovalue={photo} 
+
+            onChangeAgendaValue=
+            {setAgenda}
+            agendavalue={agenda}
             
+            onChangeProfessorValue=
+            {setProfessor}
+            professorvalue={professor}
+
+            onChangeApresentadorValue=
+            {setApresentador}
+            apresentadorvalue={apresentador}
+
+            onChangeDescricaoValue=
+            {setDescricao}
+            descricaovalue={descricao}
+            
+            onChangeVagasValue=
+            {setVagas}
+            vagasvalue={vagas}
+
+            onChangeCategoryValue=
+            {setCategory}
+            categoryvalue={category}
+
             />
         </View>
 
