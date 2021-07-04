@@ -127,10 +127,17 @@ const ListaAtividades = () => {
             onPress={() => {
               setModalVisible(true);
               setId(item.id);
-              //setPrice(item.price)
+              setTitulo(item.titulo);
+              setPhoto(item.photo);
+              setAgenda(item.agenda);
+              setProfessor(item.setProfessor);
+              setApresentador(item.apresentador);
+              setDescricao(item.descricao);
+              setVagas(item.vagas);
 
               setDescription(item.description);
-              //setCategory(item.category)
+              setCategory(item.category);
+
               onChangePress(item);
 
               console.log('ListaProduto :: Flatlist onpress', item);
@@ -141,8 +148,58 @@ const ListaAtividades = () => {
               <View
               // style={styles.containerListaProdutosDescription}
               >
+                <Text>- {item.titulo}</Text>
+              </View>
+
+              <View
+              // style={styles.containerListaProdutosDescription}
+              >
+                <Text>- {item.photo}</Text>
+              </View>
+
+              <View
+              // style={styles.containerListaProdutosDescription}
+              >
+                <Text>- {item.agenda}</Text>
+              </View>
+
+              <View
+              // style={styles.containerListaProdutosDescription}
+              >
+                <Text>- {item.professor}</Text>
+              </View>
+
+              <View
+              // style={styles.containerListaProdutosDescription}
+              >
+                <Text>- {item.apresentador}</Text>
+              </View>
+
+              <View
+              // style={styles.containerListaProdutosDescription}
+              >
+                <Text>- {item.descricao}</Text>
+              </View>
+
+              <View
+              // style={styles.containerListaProdutosDescription}
+              >
+                <Text>- {item.vagas}</Text>
+              </View>
+
+              <View
+              // style={styles.containerListaProdutosDescription}
+              >
                 <Text>- {item.description}</Text>
               </View>
+
+              <View
+              // style={styles.containerListaProdutosDescription}
+              >
+                <Text>- {item.category}</Text>
+              </View>
+
+
             </View>
           </TouchableOpacity>
         )}
@@ -158,9 +215,66 @@ const ListaAtividades = () => {
         >
           <TextInput
             //style={styles.mask}
-            placeholder="Produto"
+            placeholder="Título"
+            onChangeText={text => setTitulo(text)}
+            value={titulo}
+          />
+
+
+<TextInput
+            //style={styles.mask}
+            placeholder="Foto"
+            onChangeText={text => setPhoto(text)}
+            value={photo}
+          />
+
+<TextInput
+            //style={styles.mask}
+            placeholder="Data e Horário"
+            onChangeText={text => setAgenda(text)}
+            value={agenda}
+          />
+
+<TextInput
+            //style={styles.mask}
+            placeholder="Professor"
+            onChangeText={text => setProfessor(text)}
+            value={professor}
+          />
+
+<TextInput
+            //style={styles.mask}
+            placeholder="Apresentador"
+            onChangeText={text => setApresentador(text)}
+            value={apresentador}
+          />
+
+<TextInput
+            //style={styles.mask}
+            placeholder="Descrição"
+            onChangeText={text => setDescricao(text)}
+            value={descricao}
+          />
+
+<TextInput
+            //style={styles.mask}
+            placeholder="Vagas"
+            onChangeText={text => setVagas(text)}
+            value={vagas}
+          />
+
+<TextInput
+            //style={styles.mask}
+            placeholder="Description"
             onChangeText={text => setDescription(text)}
             value={description}
+          />
+
+<TextInput
+            //style={styles.mask}
+            placeholder="Categoria"
+            onChangeText={text => setCategory(text)}
+            value={category}
           />
 
           <TouchableOpacity
