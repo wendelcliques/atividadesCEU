@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React, {useEffect, useState} from 'react';
 import {
@@ -8,6 +9,7 @@ import {
   TouchableOpacity,
   TextInput,
   Alert,
+  StyleSheet,
 } from 'react-native';
 
 import {getAtividades} from '../../services/Atividades';
@@ -98,6 +100,15 @@ const ListaAtividadesUsu = () => {
         keyExtractor={item => item.id}
         renderItem={({item}) => (
           <TouchableOpacity
+          style={{
+            borderRadius: 5,
+            borderStyle: 'solid',
+            borderWidth: 3,
+            borderColor: 'rgba(70,70,70, 0.2)',
+            margin: 5,
+            padding: 8,
+          }}
+
             onPress={() => {
               setModalVisible(true);
               setId(item.id);
@@ -132,17 +143,19 @@ const ListaAtividadesUsu = () => {
               >
                 <Text> {item.apresentador}</Text>
               </View>
+              <View   style={{
+                flexDirection: 'row',
+              }}>
+              <View>
 
-              <View
-              // style={styles.containerListaProdutosDescription}
-              >
-                <Text> {item.agenda}</Text>
+                <Text> data ilustrativa {item.agenda}</Text>
               </View>
 
               <View
               // style={styles.containerListaProdutosDescription}
               >
                 <Text> {item.vagas}</Text>
+              </View>
               </View>
             </View>
           </TouchableOpacity>

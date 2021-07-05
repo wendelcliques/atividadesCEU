@@ -1,8 +1,12 @@
+/* eslint-disable prettier/prettier */
 import {Alert} from 'react-native';
 
 import firestore from '@react-native-firebase/firestore';
+import { getUserAuth } from './Auth';
 
 export const addInscricao = async value => {
+
+  const userAuth = await getUserAuth();
     let data = {};
 
     
@@ -10,7 +14,7 @@ export const addInscricao = async value => {
     
     const {category} = value; //barraca
     const {situation} = value; //situação (carrinho, confirmado, pronto, entregue)
-    const {user} = value; //usuário
+    const {user} = userAuth; //usuário
 
 
     const {titulo} = value;
@@ -22,7 +26,7 @@ export const addInscricao = async value => {
     const {descricao} = value; // produto
     const {vagas} = value; 
     
-    const {titulo} = value;
+    //const {user} = value;
   
     console.log('addInscricao :: value: ', JSON.stringify(value));
   
@@ -40,7 +44,7 @@ export const addInscricao = async value => {
         
     
         situation: situation,
-        user: user,
+        userId: user,
         entryAt: new Date(),
         
         isInit: false,
