@@ -1,8 +1,11 @@
 /* eslint-disable prettier/prettier */
 import React, {useState} from 'react'
-import { View, Text, StyleSheet} from 'react-native'
+import { View, Text, StyleSheet, Alert} from 'react-native'
 import PerfilUsuario from '../../../components/PerfilUsuario'
 import ListaAtividades from '../../../components/ListaAtividades'
+import AddInscrições from '../../../components/AddInscrições';
+
+import { addInscricao } from '../../../services/Inscricoes'
 
 import ListaAtividadesUsu from '../../../components/ListaAtividadesUsu'
 
@@ -16,7 +19,10 @@ const UsuarioAtividades = ({navigation}) => {
     const [idadesVisible, setIdadesVisible] =useState(false);
     const [idadesAtual, setIdadesAtual] = useState("Selecione a idade");
 
-    const [generoVisible, setGeneroVisible] =useState(false);
+    const [generoVisible, setGeneroVisible] = useState(false);
+const [inscVisible, setInscVisible] = useState(false);
+
+
     const [generoAtual, setGeneroAtual] = useState("Selecione o gênero");
 
     const onIdadesPress = item => {
@@ -35,6 +41,11 @@ const UsuarioAtividades = ({navigation}) => {
         setGeneroVisible(true);
     }
 
+    const onInscOpenPress = () => {
+        //setInscVisible(true);
+        Alert.alert('apertou aqui');
+    }
+
     const onIdadesClosePress = () => {
         setIdadesVisible(false);
     }
@@ -45,6 +56,10 @@ const UsuarioAtividades = ({navigation}) => {
 
     const onClosePress = () => {
         setModalVisible(false);
+    };
+
+    const onInscClosePress = () => {
+        setInscVisible(false);
     };
 
     return (
@@ -69,7 +84,17 @@ const UsuarioAtividades = ({navigation}) => {
           
         </View>
 
-<ListaAtividadesUsu />
+<ListaAtividadesUsu 
+  onInscPress={onInscOpenPress}
+     
+
+/>
+
+<AddInscrições
+isVisible={inscVisible}
+onConfirm={onIdadesPress}
+onCancel={onInscClosePress}
+/>
 
 
          <View>

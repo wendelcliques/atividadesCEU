@@ -12,11 +12,13 @@ import {
   StyleSheet,
 } from 'react-native';
 
+import { addInscricao } from '../../services/Inscricoes';
+
 import {getAtividades} from '../../services/Atividades';
 import {updateAtividade} from '../../services/Atividades';
 import {deleteAtividade} from '../../services/Atividades';
 
-const ListaAtividadesUsu = () => {
+const ListaAtividadesUsu = ({onInscPress}) => {
   const atividade = {
     id: null,
     titulo: null,
@@ -29,6 +31,7 @@ const ListaAtividadesUsu = () => {
     vagas: 0,
     description: null,
     category: null,
+    user: null,
   };
 
   const [id, setId] = useState(atividade.id);
@@ -42,6 +45,7 @@ const ListaAtividadesUsu = () => {
   const [vagas, setVagas] = useState(atividade.vagas);
   const [description, setDescription] = useState(atividade.description);
   const [category, setCategory] = useState(atividade.category);
+  const [user, setUser] = useState(atividade.user);
 
   const [atividades, setAtividades] = useState([]);
   const [produto, setProduto] = useState([]);
@@ -64,6 +68,26 @@ const ListaAtividadesUsu = () => {
 
     console.log('AtividadeList :: useEffect');
   }, [atividades]);
+
+  const save = () => {
+    const value = {
+      id: id,
+      vagas: parseFloat(vagas),
+      description: description,
+      category: category,
+
+      titulo: titulo,
+      photo: photo,
+      agenda: agenda,
+      professor: professor,
+      apresentador: apresentador,
+      descricao: descricao,
+      //user: user,
+    };
+
+    addInscricao(value);
+    onClosePress();
+  }
 
   const update = () => {
     const value = {
@@ -89,7 +113,9 @@ const ListaAtividadesUsu = () => {
 
   
   const onClosePress = () => {
+
     setModalVisible(false);
+    onInscPress;
   };
 
   return (
@@ -120,6 +146,7 @@ const ListaAtividadesUsu = () => {
               setAgenda(item.agenda);
               setVagas(item.vagas);
               onChangePress(item);
+              setDescricao(item.descricao);
 
               console.log('ListaProduto :: Flatlist onpress', item);
             }}>
@@ -166,6 +193,7 @@ const ListaAtividadesUsu = () => {
         //style={styles.container}
         animationType="slide"
         transparent={false}
+        //onInscPress={onInscPress}
         visible={modalVisible}>
 
 <View
@@ -207,12 +235,25 @@ const ListaAtividadesUsu = () => {
         <View
         //style={styles.modalAdmProd}
         >
-          <TextInput
-            //style={styles.mask}
-            placeholder="Produto"
-            onChangeText={text => setDescription(text)}
-            value={description}
-          />
+         <View
+              // style={styles.containerListaProdutosDescription}
+              >
+                <Text> {descricao}</Text>
+              </View>
+
+
+              <TouchableOpacity
+            //style={styles.modalAdmProdCloseButton}
+            onPress={() => {
+            save();
+              
+            }}>
+            <Text
+            //style={styles.modalAdmProdCloseButtonText}
+            >
+              Inscrever
+            </Text>
+          </TouchableOpacity>
 
           <TouchableOpacity
             // style={styles.modalAdmProdCloseButton}
@@ -226,17 +267,7 @@ const ListaAtividadesUsu = () => {
             </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity
-            //style={styles.modalAdmProdCloseButton}
-            onPress={() => {
-              update();
-            }}>
-            <Text
-            //style={styles.modalAdmProdCloseButtonText}
-            >
-              Atualizar
-            </Text>
-          </TouchableOpacity>
+        
 
           
         </View>

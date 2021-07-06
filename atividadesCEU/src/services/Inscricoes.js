@@ -14,7 +14,7 @@ export const addInscricao = async value => {
     
     const {category} = value; //barraca
     const {situation} = value; //situação (carrinho, confirmado, pronto, entregue)
-    const {user} = userAuth; //usuário
+   // const {user} = userAuth; //usuário
 
 
     const {titulo} = value;
@@ -26,7 +26,7 @@ export const addInscricao = async value => {
     const {descricao} = value; // produto
     const {vagas} = value; 
     
-    //const {user} = value;
+   
   
     console.log('addInscricao :: value: ', JSON.stringify(value));
   
@@ -44,7 +44,7 @@ export const addInscricao = async value => {
         
     
         situation: situation,
-        userId: user,
+        userId: userAuth,
         entryAt: new Date(),
         
         isInit: false,
@@ -55,6 +55,8 @@ export const addInscricao = async value => {
       await firestore()
         .collection('inscricoes')
         .add(data);
+        Alert.alert( 'Inscrito com sucesso.');
+
     } catch (error) {
       console.error(
         'addEntry :: error on save object: ',
