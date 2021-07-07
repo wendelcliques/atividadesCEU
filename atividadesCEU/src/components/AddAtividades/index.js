@@ -2,6 +2,8 @@
 import React, {useState} from 'react'
 import {Modal, View, Text, TouchableOpacity, TextInput } from 'react-native'
 
+import AddAtivDatePicker from './AddAtivDatePicker'
+
 
 const AddAtividades = ({
     isVisible, 
@@ -71,6 +73,8 @@ titulovalue,
                 onChangeText={text => onChangePhotoValue(text)}
                 value={photovalue}
                 />
+
+<AddAtivDatePicker value={agendavalue} onChange={onChangeAgendaValue}/>
 
 
 <TextInput
