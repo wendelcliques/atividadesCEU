@@ -48,13 +48,15 @@ const AdministradorAtividades = () => {
 
     const [titulo, setTitulo] = useState(atividade.titulo);
 const [photo, setPhoto] = useState(atividade.photo);
-const [agenda, setAgenda] = useState(atividade.agenda);
+const [agenda, setAgenda] = useState(atividade.agenda ? atividade.agenda.toDate() : new Date(),);
 const [professor, setProfessor] = useState(atividade.professor);
 const [apresentador, setApresentador] = useState(atividade.apresentador);
 const [descricao, setDescricao] = useState(atividade.descricao);
 const [vagas, setVagas] = useState(atividade.vagas);
 const [description, setDescription] = useState(atividade.description);
 const [category, setCategory] = useState(atividade.category);
+
+console.log('Valor Atual agenda', agenda);
 
 const save = () => {
     const value = {

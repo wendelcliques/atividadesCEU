@@ -20,23 +20,17 @@ const AddAtivDatePicker = ({value, onChange}) => {
     return (
         <View>
             <TouchableOpacity
-            style={{
-                width: 200,
-                height: 59,
-                borderRadius: 10,
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: 2,
-
-            }}
+          onPress={() => setModalVisible(true)}
             >
             <Text>Agenda</Text>
+            <Text>{value.toString()}</Text>
             </TouchableOpacity>
 
-            <DateTimePickerModal 
-            mode='date'
-            date={value}
+            <DateTimePickerModal
             isVisible={modalVisible}
+            mode="datetime"
+            date={value}
+            
             onConfirm={onChangeValue}
             onCancel={onCancel}
             

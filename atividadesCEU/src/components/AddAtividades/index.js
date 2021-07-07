@@ -44,7 +44,7 @@ titulovalue,
     return (
         <Modal 
         animationType='slide'
-        transparent={true}
+        transparent={false}
         visible={isVisible}
         
         onBackdropPress={onCancel}>
@@ -77,12 +77,7 @@ titulovalue,
 <AddAtivDatePicker value={agendavalue} onChange={onChangeAgendaValue}/>
 
 
-<TextInput
-                 //style={styles.mask}
-                 placeholder = "Selecione a data da atividade"
-                onChangeText={text => onChangeAgendaValue(text)}
-                value={agendavalue}
-                />
+
 
 
 <TextInput
