@@ -2,7 +2,7 @@
 import React, {useState} from 'react'
 import {Modal, View, Text, TouchableOpacity, TextInput } from 'react-native'
 
-import AddAtivDatePicker from './AddAtivDatePicker'
+import AddAtivDatePicker from './AddAtivDatePicker';
 
 
 const AddAtividades = ({
