@@ -10,6 +10,8 @@ import {
   Alert,
 } from 'react-native';
 
+import moment from '../../DateTimePtbr/moment';
+
 import {getAtividades} from '../../services/Atividades';
 import {updateAtividade} from '../../services/Atividades';
 import {deleteAtividade} from '../../services/Atividades';
@@ -160,7 +162,7 @@ const ListaAtividades = () => {
               <View
               // style={styles.containerListaProdutosDescription}
               >
-                <Text>- {item.agenda}</Text>
+                <Text>- {moment(item.agenda.toDate()).calendar()}</Text>
               </View>
 
               <View

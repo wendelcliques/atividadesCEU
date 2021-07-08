@@ -42,7 +42,7 @@ const AddAtivDatePicker = ({value, onChange}) => {
           onPress={() => setModalVisible(true)}
             >
             <Text>Agenda Mensal</Text>
-            <Text>{moment(value.toDate()).calendar()}</Text>
+            <Text>{moment(value.toString()).calendar()}</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
@@ -50,7 +50,7 @@ const AddAtivDatePicker = ({value, onChange}) => {
         }
             >
             <Text>Agenda Semanal</Text>
-            <Text>{moment(value.toDate()).calendar()}</Text>
+            <Text>{}</Text>
             </TouchableOpacity>
 
             <DateTimePickerModal
